@@ -8,7 +8,7 @@ function theme_load_scripts(){
 
 add_action('wp_enqueue_scripts', 'theme_load_scripts');
 
-function wpdevs_config(){
+function theme_config(){
     register_nav_menus(
         array(
             'theme_main_menu' => 'Main Menu',
@@ -30,4 +30,19 @@ function wpdevs_config(){
     ));
 }
 
-add_action('after_setup_theme', 'wpdevs_config', 0);
+add_action('after_setup_theme', 'theme_config', 0);
+
+function theme_sidebars(){
+    register_sidebars(array(
+        'name'          => 'Blog Sidebar',
+        'id'            => 'sidebar-blog',
+        'description'   => 'This is the blog sidebar. You can add your widgets here.',
+        'before_widget' => '<div class="widget-wrapper">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="widget-title">',
+        'after_title' => '</h4>',
+    ));
+
+}
+
+add_action('widgets_init', 'theme_sidebars');
