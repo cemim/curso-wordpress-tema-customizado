@@ -32,6 +32,8 @@
                         <p>Nada para mostrar</p>
                         <?php endif ?>
                     </div>
+                    <!-- Por padrão chama o arquivo sidebar.php -->
+                    <!-- Para criar um arquivo com outro nome deve-se criar um arquivo sidebar-slug e passar o slug como parâmetro -->
                     <?php get_sidebar(); ?>
                 </div>
             </main>

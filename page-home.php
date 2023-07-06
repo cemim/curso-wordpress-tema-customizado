@@ -32,28 +32,48 @@
                     </div>
                 </section>
                 <section class="home-blog">
+                    <h2>Latest News</h2>
                     <div class="container">
-                        <div class="blog-itens">
-                            <?php
-                                if(have_posts()):
-                                    while(have_posts()) : the_post();
+                        <?php
+                            $args = array(
+                                'post_type' => 'post',
+                                'posts_per_page' => 3,
+                                'category__in' => array(11,10,13),
+                                'category__not_in' => array(1)
+                            );
+
+                            $postlist = new WP_Query($args);
+
+                            if($postlist->have_posts()):
+                                while($postlist->have_posts()) : $postlist->the_post();
+                        ?>
+                        <article class="latest-news">
+                            <?php 
+                                // Exibe a miniatura das imagens destacadas nos posts
+                                // Seleciona o tamanho do wordpress que é selecionado nas configurações > mídia
+                                // Ex: 'thumb', 'medium', 'large', 'full' ou personalizado com um array(275, 275)
+                                the_post_thumbnail('large'); 
                             ?>
-                            <article>
-                                <h2><?php the_title(); ?></h2>
-                                <div class="meta-info">
-                                    <p>Postado em <?php echo get_the_date(); ?> Por <?php the_author_posts_link(); ?></p>
-                                    <p>Categoria: <?php the_category(' '); ?></p>
-                                    <p>Tags: <?php the_tags('', ', '); ?></p>
-                                </div>
-                                <?php the_content(); ?>
-                            </article>
-                            <?php
-                                    endwhile;
-                                else:
-                            ?>
-                            <p>Nada para mostrar</p>
-                            <?php endif ?>
-                        </div>
+                            <h3><?php the_title(); ?></h3>
+                            <div class="meta-info">
+                                <p>
+                                    Por <span><?php the_author_posts_link(); ?></span>
+                                    Categorias: <span><?php the_category(' '); ?></span>
+                                    Tags: <?php the_tags('', ', '); ?>
+                                </p>
+                                <p><span><?php echo get_the_date(); ?></span></p>
+                            </div>
+                            <?php the_excerpt(); ?>
+                        </article>
+                        <?php
+                                endwhile;
+
+                                // Encerra o loop para caso precise usar a WP_Query novamente na mesma página
+                                wp_reset_postdata();
+                            else:
+                        ?>
+                        <p>Nada para mostrar</p>
+                        <?php endif ?>
                     </div>
                 </section>
             </main>
