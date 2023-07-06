@@ -32,6 +32,7 @@
                         <p>Nada para mostrar</p>
                         <?php endif ?>
                     </div>
+                    <?php get_sidebar(); ?>
                 </div>
             </main>
         </div>
