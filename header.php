@@ -21,7 +21,7 @@
                         ?>
                     </div>
                     <div class="searchbox">
-                        search
+                        <?php get_search_form(); ?>
                     </div>
                 </div>
             </section>
