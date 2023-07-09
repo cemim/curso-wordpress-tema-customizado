@@ -18,8 +18,18 @@
                 </header>
                 <div class="content">
                     <?php the_content(); ?>
+                    <!-- wp_link_pages Cria uma navegação quando o post tiver com o bloco quebra de página -->
+                    <?php wp_link_pages(); ?>
                 </div>
             </article>
+            <div class="wpdevs-pagination">
+                <div class="pages next">
+                    <?php next_post_link('&laquo; %link'); ?>
+                </div>
+                <div class="pages previous">
+                    <?php previous_post_link('%link &raquo;'); ?>
+                </div>
+            </div>
             <?php
                 if(comments_open() || get_comments_number()){
                     comments_template();
