@@ -6,6 +6,7 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> >
+<?php wp_body_open(); //Permite scripts no início, como exemplo o google tag Manager ?>
     <div id="page" class="site">
         <header>
             <section class="top-bar">

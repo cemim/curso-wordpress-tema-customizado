@@ -29,8 +29,15 @@ function theme_config(){
         'flex-width'    => true
     ));
 
-    // recover title tag in pages
+    // Recover title tag in pages
     add_theme_support('title-tag');
+
+    // Permite que ao compartilhar os posts eles sejam compatíveis com leitores de feeds RSS
+    add_theme_support('automatic-feed-links');
+
+    // Adiciona elementos em HTML 5,
+    // adaptando alguns elementos como sessão de comentários e barra de pesquisa para o HTML 5
+    add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script' ) );
 }
 
 add_action('after_setup_theme', 'theme_config', 0);
@@ -78,3 +85,10 @@ function theme_sidebars(){
 }
 
 add_action('widgets_init', 'theme_sidebars');
+
+// Deixa o tema Compatível com versões anteriores a 5.2
+if(! function_exists('wp_body_open')){
+    function wp_body_open(){
+        do_action('wp_body_open');
+    }
+}
