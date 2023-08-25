@@ -15,8 +15,8 @@ function theme_customizer( $wp_customize ){
     $wp_customize->add_section(
         'sec_copyright',
         array(
-            'title' => 'Copyright Settings',
-            'description' => 'Copyright Settings',
+            'title' => __('Copyright Settings', 'curso-wordpress-tema-customizado'),
+            'description' => __('Copyright Settings', 'curso-wordpress-tema-customizado'),
             'priority' => 10,
             'panel' => 'config_default',
         )
@@ -26,7 +26,7 @@ function theme_customizer( $wp_customize ){
         'set_copyright',
         array(
             'type' => 'theme_mod',
-            'default' => 'Copyright X - All Rights Reserved',
+            'default' => __('Copyright X - All Rights Reserved', 'curso-wordpress-tema-customizado'),
             'sanitize_callback' => 'sanitize_text_field'
         )
     );
@@ -34,8 +34,8 @@ function theme_customizer( $wp_customize ){
     $wp_customize->add_control(
         'set_copyright',
         array(
-            'label' => 'Informações de Copyright',
-            'description' => 'Escreva seu Copyright aqui',
+            'label' => __('Informações de Copyright', 'curso-wordpress-tema-customizado'),
+            'description' => __('Escreva seu Copyright aqui', 'curso-wordpress-tema-customizado'),
             'section' => 'sec_copyright',
             'type' => 'text'
         )
@@ -46,7 +46,7 @@ function theme_customizer( $wp_customize ){
     $wp_customize->add_section(
         'sec_hero',
         array(
-            'title' => 'Home',
+            'title' => __('Home', 'curso-wordpress-tema-customizado'),
             'priority' => 10,
             'panel' => 'config_default',
         )
@@ -56,7 +56,7 @@ function theme_customizer( $wp_customize ){
         'set_hero_title',
         array(
             'type' => 'theme_mod',
-            'default' => 'Título',
+            'default' => __('Título', 'curso-wordpress-tema-customizado'),
             'sanitize_callback' => 'sanitize_text_field'
         )
     );
@@ -64,8 +64,8 @@ function theme_customizer( $wp_customize ){
     $wp_customize->add_control(
         'set_hero_title',
         array(
-            'label' => 'Título',
-            'description' => '',
+            'label' => __('Título', 'curso-wordpress-tema-customizado'),
+            'description' => __('Please, type your here title here', 'curso-wordpress-tema-customizado'),
             'section' => 'sec_hero',
             'type' => 'text'
         )
@@ -75,7 +75,7 @@ function theme_customizer( $wp_customize ){
         'set_hero_subtitle',
         array(
             'type' => 'theme_mod',
-            'default' => 'Sub-título',
+            'default' => __('Sub-título', 'curso-wordpress-tema-customizado'),
             'sanitize_callback' => 'sanitize_textarea_field'
         )
     );
@@ -83,7 +83,7 @@ function theme_customizer( $wp_customize ){
     $wp_customize->add_control(
         'set_hero_subtitle',
         array(
-            'label' => 'Sub-título',
+            'label' => __('Sub-título', 'curso-wordpress-tema-customizado'),
             'description' => '',
             'section' => 'sec_hero',
             'type' => 'textarea'
@@ -94,7 +94,7 @@ function theme_customizer( $wp_customize ){
         'set_hero_button_text',
         array(
             'type' => 'theme_mod',
-            'default' => 'Saiba mais',
+            'default' => __('Saiba mais', 'curso-wordpress-tema-customizado'),
             'sanitize_callback' => 'sanitize_textarea_field'
         )
     );
@@ -102,7 +102,7 @@ function theme_customizer( $wp_customize ){
     $wp_customize->add_control(
         'set_hero_button_text',
         array(
-            'label' => 'Texto Botão Hero',
+            'label' => __('Texto Botão Hero', 'curso-wordpress-tema-customizado'),
             'description' => '',
             'section' => 'sec_hero',
             'type' => 'textarea'
@@ -121,7 +121,7 @@ function theme_customizer( $wp_customize ){
     $wp_customize->add_control(
         'set_hero_button_link',
         array(
-            'label' => 'Link Botão Hero',
+            'label' => __('Link Botão Hero', 'curso-wordpress-tema-customizado'),
             'description' => '',
             'section' => 'sec_hero',
             'type' => 'url'
@@ -140,7 +140,7 @@ function theme_customizer( $wp_customize ){
     $wp_customize->add_control(
         'set_hero_height',
         array(
-            'label' => 'Altura',
+            'label' => __('Altura', 'curso-wordpress-tema-customizado'),
             'description' => '',
             'section' => 'sec_hero',
             'type' => 'number'
@@ -159,7 +159,7 @@ function theme_customizer( $wp_customize ){
         $wp_customize,
         'set_hero_background',
         array(
-            'label' => 'Hero Imagem',
+            'label' => __('Hero Imagem', 'curso-wordpress-tema-customizado'),
             'section' => 'sec_hero',
             'mime_type' => 'image'
         )
@@ -170,7 +170,7 @@ function theme_customizer( $wp_customize ){
 	$wp_customize->add_section( 
         'sec_blog', 
         array(
-		    'title' => 'Blog Section',
+		    'title' => __('Blog Section', 'curso-wordpress-tema-customizado'),
             'priority' => 10,
             'panel' => 'config_default',
 	) );
@@ -186,8 +186,8 @@ function theme_customizer( $wp_customize ){
             $wp_customize->add_control( 
                 'set_per_page', 
                 array(
-                    'label' => 'Posts per page',
-                    'description' => 'How many items to display in the post list?',			
+                    'label' => __('Posts per page', 'curso-wordpress-tema-customizado'),
+                    'description' => __('How many items to display in the post list?', 'curso-wordpress-tema-customizado'),
                     'section' => 'sec_blog',
                     'type' => 'number'
             ) );
@@ -203,8 +203,8 @@ function theme_customizer( $wp_customize ){
             $wp_customize->add_control( 
                 'set_category_include', 
                 array(
-                    'label' => 'Post categories to include',
-                    'description' => 'Comma separated values or single category ID',
+                    'label' => __('Post categories to include', 'curso-wordpress-tema-customizado'),
+                    'description' => __('Comma separated values or single category ID', 'curso-wordpress-tema-customizado'),
                     'section' => 'sec_blog',
                     'type' => 'text'
             ) );	
@@ -220,8 +220,8 @@ function theme_customizer( $wp_customize ){
             $wp_customize->add_control( 
                 'set_category_exclude', 
                 array(
-                    'label' => 'Post categories to exclude',
-                    'description' => 'Comma separated values or single category ID',			
+                    'label' => __('Post categories to exclude', 'curso-wordpress-tema-customizado'),
+                    'description' => __('Comma separated values or single category ID', 'curso-wordpress-tema-customizado'),
                     'section' => 'sec_blog',
                     'type' => 'text'
             ) );

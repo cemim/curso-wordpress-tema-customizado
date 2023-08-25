@@ -11,10 +11,14 @@ function theme_load_scripts(){
 add_action('wp_enqueue_scripts', 'theme_load_scripts');
 
 function theme_config(){
+    $textdomain = 'curso-wordpress-tema-customizado'; // Definido no style.css
+
+    load_theme_textdomain($textdomain, get_template_directory() . '/languages/');
+
     register_nav_menus(
         array(
-            'theme_main_menu' => 'Main Menu',
-            'theme_footer_menu' => 'Footer Menu'
+            'theme_main_menu' => __('Main Menu', $textdomain),
+            'theme_footer_menu' => __('Footer Menu', $textdomain)
         )
     );
 
@@ -46,9 +50,9 @@ add_action('after_setup_theme', 'theme_config', 0);
 
 function theme_sidebars(){
     register_sidebar(array(
-        'name'          => 'Blog Sidebar',
+        'name'          => __('Blog Sidebar', 'curso-wordpress-tema-customizado'),
         'id'            => 'sidebar-blog',
-        'description'   => 'This is the blog sidebar. You can add your widgets here.',
+        'description'   => __('This is the blog sidebar. You can add your widgets here.', 'curso-wordpress-tema-customizado'),
         'before_widget' => '<div class="widget-wrapper">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
@@ -56,9 +60,9 @@ function theme_sidebars(){
     ));
 
     register_sidebar(array(
-        'name'          => 'Service 1',
+        'name'          => __('Service 1', 'curso-wordpress-tema-customizado'),
         'id'            => 'services-1',
-        'description'   => 'First Service Area',
+        'description'   => __('First Service Area', 'curso-wordpress-tema-customizado'),
         'before_widget' => '<div class="widget-wrapper">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
@@ -66,9 +70,9 @@ function theme_sidebars(){
     ));
 
     register_sidebar(array(
-        'name'          => 'Service 2',
+        'name'          => __('Service 2', 'curso-wordpress-tema-customizado'),
         'id'            => 'services-2',
-        'description'   => 'Second Service Area',
+        'description'   => __('Second Service Area', 'curso-wordpress-tema-customizado'),
         'before_widget' => '<div class="widget-wrapper">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
@@ -76,9 +80,9 @@ function theme_sidebars(){
     ));
 
     register_sidebar(array(
-        'name'          => 'Service 3',
+        'name'          => __('Service 3', 'curso-wordpress-tema-customizado'),
         'id'            => 'services-3',
-        'description'   => 'Third Service Area',
+        'description'   => __('Third Service Area', 'curso-wordpress-tema-customizado'),
         'before_widget' => '<div class="widget-wrapper">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',

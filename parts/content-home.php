@@ -12,12 +12,12 @@
     <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
     <div class="meta-info">
         <p>
-            Por <span><?php the_author_posts_link(); ?></span>
+            <?php _e('Por', 'curso-wordpress-tema-customizado') ?> <span><?php the_author_posts_link(); ?></span>
             <?php if(has_category()): ?>
-            Categorias: <span><?php the_category(' '); ?></span>
+                <?php _e('Categorias', 'curso-wordpress-tema-customizado') ?>: <span><?php the_category(' '); ?></span>
             <?php endif ?>
             <?php if(has_tag()): ?>
-            Tags: <?php the_tags('', ', '); ?>
+                <?php _e('Tags', 'curso-wordpress-tema-customizado') ?>: <?php the_tags('', ', '); ?>
             <?php endif ?>
         </p>
         <p><span><?php echo get_the_date(); ?></span></p>

@@ -2,11 +2,11 @@
     <div id="content" class="site-content">
         <div id="primary" class="content-area">
             <main id="main" class="side-main">
-                <?php 
-                $hero_title = get_theme_mod('set_hero_title', 'Título');
-                $hero_subtitle = get_theme_mod('set_hero_subtitle', 'Sub-Título');
+                <?php                 
+                $hero_title = get_theme_mod('set_hero_title', __('Título','curso-wordpress-tema-customizado'));
+                $hero_subtitle = get_theme_mod('set_hero_subtitle', __('Sub-Título','curso-wordpress-tema-customizado'));
                 $hero_button_link = get_theme_mod('set_hero_button_link', '#');
-                $hero_button_text = get_theme_mod('set_hero_button_text', 'Saiba mais');
+                $hero_button_text = get_theme_mod('set_hero_button_text', __('Saiba mais','curso-wordpress-tema-customizado'));
                 $hero_height = get_theme_mod('set_hero_height', 800);
                 $hero_background = wp_get_attachment_url(get_theme_mod('set_hero_background'));
                 ?>
@@ -22,7 +22,7 @@
                     </div>
                 </section>
                 <section class="services">
-                    <h2>Services</h2>
+                    <h2><?php _e('Services', 'curso-wordpress-tema-customizado') ?></h2>
                     <div class="container">
                         <div class="services-item">
                             <?php
@@ -48,7 +48,7 @@
                     </div>
                 </section>
                 <section class="home-blog">
-                    <h2>Latest News</h2>
+                    <h2><?php _e('Latest News', 'curso-wordpress-tema-customizado') ?></h2>
                     <div class="container">
                         <?php
                             $per_page = get_theme_mod('set_per_page', 3);
@@ -73,7 +73,7 @@
                                 wp_reset_postdata();
                             else:
                         ?>
-                        <p>Nada para mostrar</p>
+                        <p><?php _e('Nothing yet to be displayed', 'curso-wordpress-tema-customizado') ?></p>
                         <?php endif ?>
                     </div>
                 </section>

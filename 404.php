@@ -5,15 +5,15 @@
                 <div class="container">
                     <div class="error-404">
                         <header>
-                            <h1>Page not found</h1>
-                            <p>Unfortunately, the page you tried to read does not exist on this site.</p>
+                            <h1><?php _e('Page not found', 'curso-wordpress-tema-customizado') ?></h1>
+                            <p><?php _e('Unfortunately, the page you tried to read does not exist on this site.', 'curso-wordpress-tema-customizado') ?></p>
                         </header>
                         <div class="error">
-                            <p>How about doing a search?</p>
+                            <p><?php _e('How about doing a search?', 'curso-wordpress-tema-customizado') ?></p>
                             <?php get_search_form(); ?>
                             <?php the_widget(
                                 'WP_Widget_Recent_Posts', array(
-                                    'title' => 'Latest Posts',
+                                    'title' => __('Latest Posts', 'curso-wordpress-tema-customizado'),
                                     'number' => 3
                                 )
                             ); ?>

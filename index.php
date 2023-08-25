@@ -3,7 +3,7 @@
     <div id="content" class="site-content">
         <div id="primary" class="content-area">
             <main id="main" class="side-main">
-                <h1>Blog</h1>
+                <h1><?php _e('Blog', 'curso-wordpress-tema-customizado') ?></h1>
                 <div class="container">
                     <div class="blog-itens">
                         <?php
@@ -17,17 +17,17 @@
 
                         <div class="wpdevs-pagination">
                             <div class="pages new">
-                                <?php previous_posts_link( "<< Newer posts" ); ?>
+                                <?php previous_posts_link( __("<< Newer posts", 'curso-wordpress-tema-customizado') ); ?>
                             </div>
                             <div class="pages old">
-                                <?php next_posts_link( "Older posts >>" ); ?>
+                                <?php next_posts_link( __("Older posts >>", 'curso-wordpress-tema-customizado') ); ?>
                             </div>
                         </div>
 
                         <?php
                             else:
                         ?>
-                        <p>Nada para mostrar</p>
+                        <p><?php _e('Nothing yet to be displayed', 'curso-wordpress-tema-customizado') ?></p>
                         <?php endif ?>
                     </div>
                     <!-- Por padrão chama o arquivo sidebar.php -->

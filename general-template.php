@@ -22,7 +22,7 @@ Template Name: General Template
                                 endwhile;
                             else:
                         ?>
-                        <p>Nada para mostrar</p>
+                        <p><?php _e('Nada para mostrar', 'curso-wordpress-tema-customizado') ?></p>
                         <?php endif ?>
                     </div>
                 </div>

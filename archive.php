@@ -19,17 +19,17 @@
 
                         <div class="wpdevs-pagination">
                             <div class="pages new">
-                                <?php previous_posts_link( "<< Newer posts" ); ?>
+                                <?php previous_posts_link( __("<< Newer posts", 'curso-wordpress-tema-customizado') ); ?>
                             </div>
                             <div class="pages old">
-                                <?php next_posts_link( "Older posts >>" ); ?>
+                                <?php next_posts_link( __("Older posts >>", 'curso-wordpress-tema-customizado') ); ?>
                             </div>
                         </div>
 
                         <?php
                             else:
                         ?>
-                        <p>Nada para mostrar</p>
+                        <p><?php _e('Nothing yet to be displayed!', 'curso-wordpress-tema-customizado') ?></p>
                         <?php endif ?>
                     </div>
                     <!-- Por padrão chama o arquivo sidebar.php -->
