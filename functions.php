@@ -44,9 +44,52 @@ function theme_config(){
     // Adiciona elementos em HTML 5,
     // adaptando alguns elementos como sessão de comentários e barra de pesquisa para o HTML 5
     add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script' ) );
+    
+    // Professor ensinou a fazer o trecho abaixo usando o theme json que foi implementado na versão 5.8 do Wordpress
+    // add_theme_support('align-wide'); // Editor de bloco - imagens ocupem a página toda
+    add_theme_support('responsive-embeds'); // Editor de bloco - códigos incorporados como o do Youtube responsivos
+    add_theme_support('editor-styles'); // Editor de bloco - Habilita estilizar como os arquivos serão exibidos dentro do editor
+    add_editor_style('style-editor.css'); // Informa qual o arquivo que edita as informações dentro do editor de blocos
+    add_theme_support('wp-block-styles'); // Editor de bloco - Implementa estilos dos Blocos
+
+    // Professor ensinou a fazer o trecho abaixo usando o theme json que foi implementado na versão 5.8 do Wordpress
+    // add_theme_support( 'editor-color-palette', array(
+    //     array(
+    //         'name'  => esc_attr__( 'Primary', 'curso-wordpress-tema-customizado' ),
+    //         'slug'  => 'primary',
+    //         'color' => '#001E32',
+    //     ),
+    //     array(
+    //         'name'  => esc_attr__( 'Secondary', 'curso-wordpress-tema-customizado' ),
+    //         'slug'  => 'secondary',
+    //         'color' => '#CFAF07',
+    //     )
+    // ) ); // Editor de bloco - Adiciona cor personalizada na paleta de cor dos blocos
+
+    // Desabilita cores personalizadas no tema
+    //add_theme_support('disable-custom-colors');
 }
 
 add_action('after_setup_theme', 'theme_config', 0);
+
+function theme_register_block_style(){
+    wp_register_style('theme-block-style', get_template_directory_uri() . '/block-style.css');
+
+    // Cria um estilo personalizado para um bloco
+    // Uma das maneiras de pegar o nome do blog é no console na pagina de admin da página digitar:
+    // wp.blocks.getBlockTypes();
+    register_block_style(
+        'core/quote', // Cria um estilo para a citação
+        array(
+            'name'          => 'red-quote',
+            'label'         => 'Red Quote',
+            'is_default'    => false,
+            //'inline_style'  => '.wp-block-quote.is-style-red-quote { border-left: 7px solid #ff0000; background: #f9f3f3; padding: 10px 20px;}', // Nesse Caso CSS sempre começa com o nome do bloco .wp-block-quote
+            'style_handle'  => 'theme-block-style'
+        )
+    );
+}
+add_action('init', 'theme_register_block_style');
 
 function theme_sidebars(){
     register_sidebar(array(
